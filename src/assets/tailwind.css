@@ -2,4 +2,12 @@
 
 @import "tailwindcss/components";
 
+.button-classic {
+  background: linear-gradient(164.58deg, #027aff -91.84%, #2bdff3 213.97%);
+  @apply w-full text-white font-bold py-3 px-4 mb-10 mt-6;
+}
+.button-classic:focus {
+  @apply outline-none;
+}
+
 @import "tailwindcss/utilities";

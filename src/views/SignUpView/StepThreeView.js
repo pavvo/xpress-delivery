@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
 import ErrorMessage from "../../components/ErrorMessage";
+import InputField from "../../components/InputField";
+import BackButton from "../../components/BackButton";
+import AuthButton from "../../components/AuthButton";
 
 const StepThreeView = (props) => {
   const [businessName, setBusinessName] = useState("");
@@ -30,70 +33,35 @@ const StepThreeView = (props) => {
     <React.Fragment>
       <ErrorMessage errorMessage={error} />
 
-      <div className="mb-4 mt-6">
-        <label className="block text-sm font-bold mb-2" htmlFor="email">
-          Business Name
-        </label>
-        <input
-          className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="businessName"
-          type="email"
-          placeholder="Busines Name"
-          name="businessName"
-          value={businessName}
-          onChange={(e) => setBusinessName(e.target.value)}
-          required
-        />
-      </div>
-      <div className="mb-4 mt-6">
-        <label className="block text-sm font-bold mb-2" htmlFor="email">
-          Business Address
-        </label>
-        <input
-          className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="businessAddress"
-          type="address"
-          placeholder="Business Address"
-          name="businessAddress"
-          value={businessAddress}
-          onChange={(e) => setBusinessAddress(e.target.value)}
-          required
-        />
-      </div>
-      <div className="mb-4 mt-6">
-        <label className="block text-sm font-bold mb-2" htmlFor="email">
-          Business Phone number
-        </label>
-        <input
-          className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="businessPhoneNumber"
-          type="tel"
-          placeholder="Busines phone number"
-          name="businessPhoneNumber"
-          value={businessPhoneNumber}
-          onChange={(e) => setbusinessPhoneNumber(e.target.value)}
-          required
-        />
-      </div>
-      <button
-        className="w-full text-white font-bold py-3 px-4 mb-10 mt-6 focus:outline-none"
-        type="button"
-        style={{
-          background:
-            "linear-gradient(164.58deg, #027AFF -91.84%, #2BDFF3 213.97%)",
-        }}
-        onClick={(e) => handleClick(e)}
-      >
-        Sign up
-      </button>
-      <div
-        className="w-full text-center mb-5 "
-        style={{ color: "#027AFF", cursor: "pointer" }}
-      >
-        <span className="text-center" onClick={(e) => goBack(e)}>
-          Back
-        </span>
-      </div>
+      <InputField
+        id={"businessName"}
+        type={"text"}
+        placeholder={"Business name"}
+        name={"businessName"}
+        value={businessName}
+        onChange={setBusinessName}
+        label={"Business Name"}
+      />
+      <InputField
+        id={"businessAddress"}
+        type={"text"}
+        placeholder={"Business Address"}
+        name={"businessAddress"}
+        value={businessAddress}
+        onChange={setBusinessAddress}
+        label={"Business Address"}
+      />
+      <InputField
+        id={"businessPhoneNumber"}
+        type={"text"}
+        placeholder={"Business phone Number"}
+        name={"businessPhoneNumber"}
+        value={businessPhoneNumber}
+        onChange={setbusinessPhoneNumber}
+        label={"Business phone number"}
+      />
+      <AuthButton handleClick={handleClick} />
+      <BackButton goBack={goBack} />
     </React.Fragment>
   );
 };

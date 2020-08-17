@@ -605,6 +605,25 @@ video {
   }
 }
 
+.button-classic {
+  background: linear-gradient(164.58deg, #027aff -91.84%, #2bdff3 213.97%);
+  width: 100%;
+  --text-opacity: 1;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+  font-weight: 700;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+.button-classic:focus {
+  outline: 0;
+}
+
 .space-y-0 > :not(template) ~ :not(template) {
   --space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
