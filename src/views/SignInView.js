@@ -3,8 +3,10 @@ import { AuthContext } from "../data/AuthContext";
 
 import logoForm from "../assets/img/logo_form.png";
 
+import AuthError from "../components/AuthError";
+
 const SignInView = () => {
-  const { signIn, isAuth } = useContext(AuthContext);
+  const { signIn, isAuth, authError } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,16 +34,7 @@ const SignInView = () => {
           />
           <span className="text-2xl font-bold pb-10">Login</span>
 
-          {/* {context.error.length > 1 ? (
-            <div className="flex items-center justify-start my-4">
-              <div
-                class="bg-red-100 border border-red-400 text-red-700 px-4 py-1 rounded relative"
-                role="alert"
-              >
-                <span class="block sm:inline">{context.error}</span>
-              </div>
-            </div>
-          ) : null} */}
+          <AuthError authError={authError} />
 
           <div className="mb-4 mt-6">
             <label className="block text-sm font-bold mb-2" htmlFor="email">

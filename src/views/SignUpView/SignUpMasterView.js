@@ -1,14 +1,17 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { AuthContext } from "../../data/AuthContext";
+
 import logoForm from "../../assets/img/logo_form.png";
 import StepOneView from "./StepOneView";
 import StepTwoView from "./StepTwoView";
 import StepThreeView from "./StepThreeView";
-import { AuthContext } from "../../data/AuthContext";
+
+import AuthError from "../../components/AuthError";
 
 const SignUpMasterView = () => {
-  const { signUp } = useContext(AuthContext);
+  const { signUp, authError } = useContext(AuthContext);
 
   const [currentStep, setCurrentStep] = useState(1);
   const [user, setUser] = useState({});
@@ -75,6 +78,7 @@ const SignUpMasterView = () => {
               Step {currentStep}/3
             </span>
           </div>
+          <AuthError authError={authError} />
           {step}
           <div className="flex items-center justify-center">
             <Link

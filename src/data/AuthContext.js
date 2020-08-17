@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 
 const AuthContextProvider = (props) => {
   const [isAuth, setIsAuth] = useState(false);
+  const [authError, setAuthError] = useState("");
 
   useEffect(() => {
     let temp = JSON.parse(localStorage.getItem("user"));
@@ -22,7 +23,8 @@ const AuthContextProvider = (props) => {
         window.location.href = "/";
       })
       .catch((e) => {
-        alert(e);
+        console.log(e.message);
+        setAuthError(e.message);
       });
   };
 
@@ -36,7 +38,8 @@ const AuthContextProvider = (props) => {
         window.location.href = "/";
       })
       .catch((e) => {
-        alert(e);
+        console.log(e.message);
+        setAuthError(e.message);
       });
   };
 
@@ -61,13 +64,14 @@ const AuthContextProvider = (props) => {
         window.location.href = "/signin";
       })
       .catch(function (e) {
-        alert(e.message);
+        console.log(e.message);
+        setAuthError(e.message);
       });
   };
 
   return (
     <AuthContext.Provider
-      value={{ isAuth, signIn, logout, recoverPassword, signUp }}
+      value={{ isAuth, authError, signIn, logout, recoverPassword, signUp }}
     >
       {props.children}
     </AuthContext.Provider>

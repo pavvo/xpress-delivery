@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../data/AuthContext";
 
+import AuthError from "../components/AuthError";
+
 import logoForm from "../assets/img/logo_form.png";
 
 const RecoverView = () => {
-  const { recoverPassword } = useContext(AuthContext);
+  const { recoverPassword, authError } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
 
@@ -35,6 +37,7 @@ const RecoverView = () => {
             reset your password.
           </span>
           <div className="p-1"></div>
+          <AuthError authError={authError} />
           <div className="mb-12 mt-6">
             <label className="block text-sm font-bold mb-2" htmlFor="email">
               Email
@@ -48,7 +51,6 @@ const RecoverView = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            {/* <h4 className="text-sm pt-4">{context.recoverSuccessMessage}</h4> */}
           </div>
 
           <button
