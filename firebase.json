@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "site": "xpress-delivery-ef29a",
+    "public": "build",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
