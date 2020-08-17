@@ -4,6 +4,7 @@ import { AuthContext } from "../data/AuthContext";
 import logoForm from "../assets/img/logo_form.png";
 
 import ErrorMessage from "../components/ErrorMessage";
+import InputField from "../components/InputField";
 
 const SignInView = () => {
   const { signIn, isAuth, authError } = useContext(AuthContext);
@@ -36,34 +37,24 @@ const SignInView = () => {
 
           <ErrorMessage errorMessage={authError} />
 
-          <div className="mb-4 mt-6">
-            <label className="block text-sm font-bold mb-2" htmlFor="email">
-              Email
-            </label>
-            <input
-              className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="email"
-              type="email"
-              placeholder="Email"
-              name="email"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-          </div>
-          <div className="mb-6">
-            <label className="block text-sm font-bold mb-2" htmlFor="password">
-              Password
-            </label>
-            <input
-              className="border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              id="password"
-              type="password"
-              placeholder="*******"
-              name="password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-          </div>
+          <InputField
+            id={"email"}
+            type={"email"}
+            placeholder={"Email"}
+            name={"email"}
+            value={email}
+            onChange={setEmail}
+            label={"Email"}
+          />
+          <InputField
+            id={"password"}
+            type={"password"}
+            placeholder={"password"}
+            name={"password"}
+            value={password}
+            onChange={setPassword}
+            label={"password"}
+          />
           <div className="flex items-center justify-end">
             <a
               className="align-baseline font-semibold text-sm text-blue-500 hover:text-blue-800 mb-10"
@@ -76,14 +67,7 @@ const SignInView = () => {
             </a>
           </div>
 
-          <button
-            className="w-full text-white font-bold py-3 px-4 mb-10 focus:outline-none"
-            type="submit"
-            style={{
-              background:
-                "linear-gradient(164.58deg, #027AFF -91.84%, #2BDFF3 213.97%)",
-            }}
-          >
+          <button className="button-classic" type="submit">
             Sign In
           </button>
 
