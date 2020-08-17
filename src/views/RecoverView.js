@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../data/AuthContext";
 
-import AuthError from "../components/AuthError";
+import ErrorMessage from "../components/ErrorMessage";
 
 import logoForm from "../assets/img/logo_form.png";
 
@@ -37,7 +37,7 @@ const RecoverView = () => {
             reset your password.
           </span>
           <div className="p-1"></div>
-          <AuthError authError={authError} />
+          <ErrorMessage errorMessage={authError} />
           <div className="mb-12 mt-6">
             <label className="block text-sm font-bold mb-2" htmlFor="email">
               Email

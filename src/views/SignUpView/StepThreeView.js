@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import ErrorMessage from "../../components/ErrorMessage";
+
 const StepThreeView = (props) => {
   const [businessName, setBusinessName] = useState("");
   const [businessAddress, setBusinessAddress] = useState("");
@@ -26,19 +28,7 @@ const StepThreeView = (props) => {
   };
   return (
     <React.Fragment>
-      {error.length > 0 ? (
-        <div className="w-full flex items-center justify-start ">
-          <div
-            className="bg-red-100 border border-red-400 text-red-700 px-4 py-1 rounded relative text-center"
-            role="alert"
-            style={{
-              width: "100%",
-            }}
-          >
-            <span className="block sm:inline">{error}</span>
-          </div>
-        </div>
-      ) : null}
+      <ErrorMessage errorMessage={error} />
 
       <div className="mb-4 mt-6">
         <label className="block text-sm font-bold mb-2" htmlFor="email">

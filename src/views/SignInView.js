@@ -3,7 +3,7 @@ import { AuthContext } from "../data/AuthContext";
 
 import logoForm from "../assets/img/logo_form.png";
 
-import AuthError from "../components/AuthError";
+import ErrorMessage from "../components/ErrorMessage";
 
 const SignInView = () => {
   const { signIn, isAuth, authError } = useContext(AuthContext);
@@ -34,7 +34,7 @@ const SignInView = () => {
           />
           <span className="text-2xl font-bold pb-10">Login</span>
 
-          <AuthError authError={authError} />
+          <ErrorMessage errorMessage={authError} />
 
           <div className="mb-4 mt-6">
             <label className="block text-sm font-bold mb-2" htmlFor="email">

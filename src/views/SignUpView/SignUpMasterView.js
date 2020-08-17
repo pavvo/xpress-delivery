@@ -8,7 +8,7 @@ import StepOneView from "./StepOneView";
 import StepTwoView from "./StepTwoView";
 import StepThreeView from "./StepThreeView";
 
-import AuthError from "../../components/AuthError";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const SignUpMasterView = () => {
   const { signUp, authError } = useContext(AuthContext);
@@ -78,7 +78,7 @@ const SignUpMasterView = () => {
               Step {currentStep}/3
             </span>
           </div>
-          <AuthError authError={authError} />
+          <ErrorMessage errorMessage={authError} />
           {step}
           <div className="flex items-center justify-center">
             <Link
