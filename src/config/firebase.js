@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
-
+import "firebase/database";
 const firebaseConfig = {
   apiKey: "AIzaSyB8ewMbC63aT0KiFrfJccfMOyNHrB20YaM",
   authDomain: "xpressrx-delivery.firebaseapp.com",
@@ -14,3 +14,4 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
+export const database = firebase.database();

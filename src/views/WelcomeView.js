@@ -5,14 +5,13 @@ import { AuthContext } from "../data/AuthContext";
 
 import logo from "../assets/img/Logo.png";
 import logoText from "../assets/img/logo_text.png";
+import Dashboard from "./Dashboard";
 
 const WelcomeView = () => {
   const { isAuth, logout } = useContext(AuthContext);
 
   return isAuth ? (
-    <div>
-      <button onClick={logout}>Logout</button>
-    </div>
+    <Dashboard logout={logout} />
   ) : (
     <React.Fragment>
       <div

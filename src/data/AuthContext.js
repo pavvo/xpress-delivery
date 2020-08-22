@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 
-import { auth } from "../config/firebase";
+import { auth, database } from "../config/firebase";
+import { data } from "autoprefixer";
 
 export const AuthContext = createContext();
 
@@ -28,11 +29,16 @@ const AuthContextProvider = (props) => {
       });
   };
 
-  const signUp = (email, password) => {
+  const updateUser = (userObject) => {
+    const userRef = database.ref("users");
+    userRef.push({ ...userObject });
+  };
+
+  const signUp = (email, password, userObject) => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        console.log("super");
+        updateUser(userObject);
       })
       .then(() => {
         window.location.href = "/";

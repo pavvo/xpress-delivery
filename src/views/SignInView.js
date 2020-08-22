@@ -49,11 +49,11 @@ const SignInView = () => {
           <InputField
             id={"password"}
             type={"password"}
-            placeholder={"password"}
+            placeholder={"Password"}
             name={"password"}
             value={password}
             onChange={setPassword}
-            label={"password"}
+            label={"Password"}
           />
           <div className="flex items-center justify-end">
             <a
